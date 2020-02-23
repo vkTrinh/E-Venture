@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<link rel="stylesheet" href="{%static 'Communication/styles.css' %}" type="text/css">
+</head>
+<body>
+<img class="rezise" src="{%static 'Communication/dortmund_logo.jpg' %}">
+<hr/>
+<h1>Wir Antworten auf:</h1>
+{% for data in data %}
+<form method="POST">
+{% csrf_token %}
+<input type="hidden" id="custId" name="custId" value={{data.id}}>
+<label for="textfeld" id="Betreff">{{ data.grund }} von {{ data.von }}</label> 
+<div class="nachricht-control" contenteditable="true" name="textfeld">"{{ data.nachricht }}"<br><hr>Hallo<br>Vielen Danke für Ihren Hinweis.<br>Ihre Stadt Dortmund</div> 
+<br>
+<input type="hidden" id="custId" name="custId" value={{data}}>
+<button id="Senden" type="submit" > Antworten </button> 
+</form>
+<br><br>
+{% endfor %}
+</body>
+</html>
