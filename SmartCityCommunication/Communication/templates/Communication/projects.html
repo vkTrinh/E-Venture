@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<link rel="stylesheet" href="{%static 'Communication/styles.css' %}" type="text/css">
+</head>
+<body>
+<img class="rezise" src="{%static 'Communication/dortmund_logo.jpg' %}">
+<hr/>
+<h1>Unsere aktuellsten Projekte:</h1>
+{% for project in object_list %}
+{% csrf_token %}
+<a href="/projects/{{project.id}}">{{project.title}}</a>
+<br>
+{% endfor %}
+<h4>Besitzen Sie auch Ideen zu unserer gemeinsamen Stadt? <br> Dann schicken Sie uns diese:</h4>
+<form action="">
+  <label for="myfile">Bitte als PDF Datei:</label>
+  <input type="file" id="myfile" name="myfile"><br><br>
+  <input type="submit">
+</form>
+</body>
+</html>

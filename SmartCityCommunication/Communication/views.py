@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import *
 from .models import Sender
 from django.core.mail import send_mail
+
 # Create your views here.
 
 def sender(request):
@@ -28,6 +29,7 @@ def addressee(request):
         data = Sender.objects.filter(wann__year=2020).order_by('wann', 'grund').reverse()
         return render(request, 'Communication/addressee.html',{'data':data})
     return render(request, 'Communication/addressee.html',{'data':data})
+
 
     
 

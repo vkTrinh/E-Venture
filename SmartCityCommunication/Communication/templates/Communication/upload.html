@@ -7,16 +7,12 @@
 <body>
 <img class="rezise" src="{%static 'Communication/dortmund_logo.jpg' %}">
 <hr/>
-<h1>Haben Sie einen Hinweis für uns?</h1>
-<script>
-var Label = ['Ihre E-Mail Adresse:','Der Betreff:','Ihr Hinweis:'];
-var i = 0;
-</script>
+<h1>Haben Sie einen Vorschlag für uns?</h1>
 	<form method="post">
+	
+		{% csrf_token %}
 		<div class="Format">
 		{% for field in form%}
-		{% csrf_token %}
-		<label id="Betreff" for={{form.field.id_for_label}}><script>document.write(Label[i]); i = i+1;</script></label>
 		<br> {{ field }} <br>
 		{% endfor %}
 		</div>

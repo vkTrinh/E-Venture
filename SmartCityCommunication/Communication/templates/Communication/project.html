@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<link rel="stylesheet" href="{%static 'Communication/styles.css' %}" type="text/css"></head>
+</head>
+<body>
+<img class="rezise" src="{%static 'Communication/dortmund_logo.jpg' %}">
+<hr/>
+{% csrf_token %}
+<h1>{{project.title}}</h1>
+<h6>{{project.date}}</h6>
+{{project.body|safe|linebreaks}}
+<a href="http://127.0.0.1:8000/projects/ranking/" onClick="document.getElementById('likebutton').submit()"><img src="{%static 'Communication/daumen_hoch.jpg' %}" height="64px" width="64px"></a> {{project.pro}}      
+<a href="http://127.0.0.1:8000/projects/ranking/" onClick="document.getElementById('dislikebutton').submit()"><img src="{%static 'Communication/daumen_runter.jpg' %}" height="64px" width="64px"></a> {{project.contra}}
+<form id="likebutton" method="POST">
+{% csrf_token %}
+<input type="hidden">
+</form>
+<form id="dislikebutton" method="POST">
+{% csrf_token %}
+<input type="hidden">
+</form>
+</body>
+</html>

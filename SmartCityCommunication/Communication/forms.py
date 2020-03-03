@@ -10,4 +10,3 @@ class SenderForm(forms.ModelForm):
             'grund': forms.TextInput(attrs={'class': 'betreff-control'}),
             'nachricht': forms.Textarea(attrs={'class': 'nachricht-control', 'cols': '30'})
         }
-
